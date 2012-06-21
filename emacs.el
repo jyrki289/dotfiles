@@ -2,9 +2,9 @@
 (setq load-path (append load-path
 			(list "~/.dotfiles/emacs.d/")
 			(list "~/.dotfiles/emacs.d/color-theme-6.6.0")
-                        (list "~/.dotfiles/emacs.d/plugins/yasnippet-0.6.1c")
-                        (list "~/.dotfiles/emacs.d/plugins/magit-1.0.0/")
-                        (list "~/.dotfiles/emacs.d/plugins/ess-5.13/lisp/")
+                        (list "~/.dotfiles/emacs.d/yasnippet-0.6.1c")
+                        (list "~/.dotfiles/emacs.d/magit-1.0.0/")
+                        (list "~/.dotfiles/emacs.d/ess-5.13/lisp/")
                         (list "~/.dotfiles/emacs.d/csharp")))
 
 ;; ====APPEARANCE====
@@ -36,8 +36,6 @@
 ;; ====EDITING====
 ;; indent is 4 spaces
 (setq-default indent-tabs-mode nil)
-
-
 
 (setq-default
  c-default-style "bsd"
@@ -94,7 +92,7 @@
 ;; yasnippet
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas/initialize)
-(setq yas/root-directory '("~/.dotfiles/emacs.d/plugins/yasnippet-0.6.1c/snippets"
+(setq yas/root-directory '("~/.dotfiles/emacs.d/yasnippet-0.6.1c/snippets"
                            "~/.dotfiles/emacs.d/site-snippets/"))
 (mapc 'yas/load-directory yas/root-directory)
 
