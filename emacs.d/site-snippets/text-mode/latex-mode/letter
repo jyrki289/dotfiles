@@ -1,0 +1,23 @@
+\documentclass[letterpaper,12pt]{letter}
+
+
+\name{}
+\signature{David Alexander}
+\address{1329 Park Drive \#6 \\\\ Mountain View, CA 94040 \\\\ (650)-861-0893 }
+%\makelabels
+
+\begin{document}
+\begin{letter}{} %{Name and \\ Address \\ of \\ Receiver}
+
+\opening{} % eg Hello.
+
+
+
+\closing{} % eg Regards,
+
+%\cc{} % people this letter is cc-ed to
+\encl{} % list of anything enclosed
+\ps{} % any post scriptums. ``PS'' labels must be put in manually
+
+\end{letter}
+\end{document}

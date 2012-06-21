@@ -1,0 +1,29 @@
+[ui]
+username = David Alexander <dalexander@ucla.edu> 
+#style=compact
+ssh= ssh -C
+
+[extensions]
+convert=
+rebase=
+mq=
+churn=
+progress=
+color=
+graphlog=
+record=
+hgext.bookmarks =
+hgext.extdiff=
+hgk=
+transplant=
+hgattic = ~/.dotfiles/hgextensions/hgattic/attic.py
+
+[diff]
+git = True
+[extdiff]
+cmd.vdiff = opendiff-w
+cmd.echo = echo
+
+[bookmarks]
+track.current = True
+

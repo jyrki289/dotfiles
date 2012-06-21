@@ -1,0 +1,19 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+
+\providecommand{\abs}[1]{\lvert#1\rvert} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\def\E{\mathop{\rm E\,\!}\nolimits}
+\def\Var{\mathop{\rm Var}\nolimits}
+\def\Cov{\mathop{\rm Cov}\nolimits}
+\def\Pr{\mathop{\rm Pr}\nolimits}
+
+\begin{document}
+
+
+
+
+
+\end{document}
