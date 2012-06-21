@@ -5,6 +5,7 @@
                         (list "~/.dotfiles/emacs.d/yasnippet-0.6.1c")
                         (list "~/.dotfiles/emacs.d/magit-1.0.0/")
                         (list "~/.dotfiles/emacs.d/ess-5.13/lisp/")
+                        (list "~/.dotfiles/emacs.d/haskell-mode/")
                         (list "~/.dotfiles/emacs.d/csharp")))
 
 ;; ====APPEARANCE====
@@ -49,9 +50,6 @@
 (setq auto-mode-alist (cons '("\\.cu$" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.pyx$" . python-mode) auto-mode-alist))
 
-;; Enable wheelmouse support by default
-(require 'mwheel)
-
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-c\C-c" `comment-dwim)
 (global-set-key "\C-o" 'kill-region)
@@ -64,22 +62,11 @@
         (t (self-insert-command (or arg 1)))))
 
 
-;; broken breadcrumb stuff -- find better bindings
-(require 'breadcrumb)
-(global-unset-key  [(control j)])
-;;(global-set-key [(meta space)]           'bc-set)            ;; Shift-SPACE for set bookmark
-(global-set-key [(meta j)]              'bc-previous)       ;; M-j for jump to previous
-(global-set-key [(shift meta j)]        'bc-next)           ;; Shift-M-j for jump to next
-(global-set-key [(meta up)]             'bc-local-previous) ;; M-up-arrow for local previous
-(global-set-key [(meta down)]           'bc-local-next)     ;; M-down-arrow for local next
-(global-set-key [(control c)(j)]        'bc-goto-current)   ;; C-c j for jump to current bookmark
-(global-set-key [(control x)(meta j)]   'bc-list)           ;; C-x M-j for the bookmark menu list
-
 ;; Folding mode
-(load "folding")
-(folding-mode-add-find-file-hook)
-(global-set-key (kbd "C-c h") 'folding-hide-current-entry)
-(global-set-key (kbd "C-c s") 'folding-show-current-entry)
+;; (load "folding")
+;; (folding-mode-add-find-file-hook)
+;; (global-set-key (kbd "C-c h") 'folding-hide-current-entry)
+;; (global-set-key (kbd "C-c s") 'folding-show-current-entry)
 
 
 ;; find-other-file
@@ -118,6 +105,9 @@ try-expand-all-abbrevs try-expand-list))
 
 (global-auto-revert-mode)
 
+;; (require 'ess-site)
 
+(load "haskell-site-file")
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
-(require 'ess-site)
