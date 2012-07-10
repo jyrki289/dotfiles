@@ -107,7 +107,24 @@ try-expand-all-abbrevs try-expand-list))
 
 ;; (require 'ess-site)
 
+;;
+;; Haskell
+;;
 (load "haskell-site-file")
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
+;;
+;; Org-mode
+;;
+(org-remember-insinuate)
+(setq org-directory "~/Dropbox/Org/")
+(setq org-default-notes-file (concat org-directory "/TODO.org"))
+(define-key global-map "\C-cr" 'org-remember)
+
+(setq  org-remember-templates
+       '(("Todo" ?t "* TODO %?\n %i\n" "~/Dropbox/Org/TODO.org" "Unsorted")
+         ("Note" ?n "* %?\n\n %i\n" "~/Dropbox/Org/NOTES.org")))
+
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
