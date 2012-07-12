@@ -128,3 +128,10 @@ try-expand-all-abbrevs try-expand-list))
 
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
+
+
+;;
+;; Magit-mode
+;;
+(autoload 'magit-status "magit" nil t)
+(global-set-key "\C-xg" 'magit-status)
