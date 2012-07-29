@@ -119,15 +119,49 @@ try-expand-all-abbrevs try-expand-list))
 ;;
 (org-remember-insinuate)
 (setq org-directory "~/Dropbox/Org/")
-(setq org-default-notes-file (concat org-directory "/TODO.org"))
+(setq org-default-notes-file (concat org-directory "/NOTES.org"))
 (define-key global-map "\C-cr" 'org-remember)
+(setq org-remember-templates
+      '(("Todo" ?t "* TODO %?\n %i\n" "~/Dropbox/Org/TODO.org" "Unsorted")
+        ("Note" ?n "* %?\n\n %i\n"    "~/Dropbox/Org/NOTES.org")))
 
-(setq  org-remember-templates
-       '(("Todo" ?t "* TODO %?\n %i\n" "~/Dropbox/Org/TODO.org" "Unsorted")
-         ("Note" ?n "* %?\n\n %i\n" "~/Dropbox/Org/NOTES.org")))
+(setq org-agenda-files
+      '("~/Dropbox/Org/TODAY.org"
+        "~/Dropbox/Org/TODO.org"))
+
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)")))
 
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
+
+; #+LaTeX_CLASS: beamer in org files
+(unless (boundp 'org-export-latex-classes)
+ (setq org-export-latex-classes nil))
+(add-to-list 'org-export-latex-classes
+ ;; beamer class, for presentations
+ '("beamer"
+    "\\documentclass[11pt,serif]{beamer}\n"
+    ("\\section{%s}" . "\\section*{%s}")
+    ("\\begin{frame}[fragile]\\frametitle{%s}"
+     "\\end{frame}"
+     "\\begin{frame}[fragile]\\frametitle{%s}"
+     "\\end{frame}")))
+
+ ;; letter class, for formal letters
+
+ (add-to-list 'org-export-latex-classes
+ '("letter"
+    "\\documentclass[11pt]{letter}\n
+     \\usepackage[utf8]{inputenc}\n
+     \\usepackage[T1]{fontenc}\n
+     \\usepackage{color}"
+    ("\\section{%s}"       . "\\section*{%s}")
+    ("\\subsection{%s}"    . "\\subsection*{%s}")
+    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+    ("\\paragraph{%s}"     . "\\paragraph*{%s}")
+    ("\\subparagraph{%s}"  . "\\subparagraph*{%s}")))
+
 
 
 ;;
