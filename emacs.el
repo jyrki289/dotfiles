@@ -169,3 +169,7 @@ try-expand-all-abbrevs try-expand-list))
 ;;
 (autoload 'magit-status "magit" nil t)
 (global-set-key "\C-xg" 'magit-status)
+
+;; y/n is enough
+(defalias 'yes-or-no-p 'y-or-n-p)
+
