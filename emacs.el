@@ -6,6 +6,7 @@
                         (list "~/.dotfiles/emacs.d/magit-1.0.0/")
                         (list "~/.dotfiles/emacs.d/ess-5.13/lisp/")
                         (list "~/.dotfiles/emacs.d/haskell-mode/")
+                        (list "~/.dotfiles/emacs.d/ethan-wspace/lisp/")
                         (list "~/.dotfiles/emacs.d/csharp")))
 
 ;; ====APPEARANCE====
@@ -173,3 +174,6 @@ try-expand-all-abbrevs try-expand-list))
 ;; y/n is enough
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; whitespace mode
+(require 'ethan-wspace)
+(global-ethan-wspace-mode 1)
