@@ -29,5 +29,3 @@ cp autojump_v15/jumpapplet ~/bin
 cp autojump_v15/autojump.{sh,bash,zsh} ~/.autojump
 
 popd
-
-
