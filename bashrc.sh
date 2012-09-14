@@ -12,5 +12,3 @@ alias ll='ls -al'
 alias reinit="source ~/.bash_profile"
 
 export CCACHE=ccache
-export PBLS_JOB_ROOT=/Users/dalexander/Data/Jobs/
-export PBLS_REFERENCE_ROOT=/Users/dalexander/Data/References/

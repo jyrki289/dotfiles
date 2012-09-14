@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 # Get system info
 SYSTEM=$(uname -s)
@@ -20,14 +20,8 @@ mkdir -p ~/bin
 
 ### Install packages
 pushd ~/.dotfiles/Packages
-tar xvfz autojump_v15.tar.gz
-# Manually install autojump, as its installer is stupid and wants to
-# put things in /etc instead of just the user dir
-mkdir -p ~/.autojump
-cp autojump_v15/autojump   ~/bin
-cp autojump_v15/jumpapplet ~/bin
-cp autojump_v15/autojump.{sh,bash,zsh} ~/.autojump
-
+rm -rf joelthelion-autojump-1ab78ae
+unzip joelthelion-autojump-release-v21-rc.2-2-g1ab78ae.zip
+cd joelthelion-autojump-1ab78ae
+./install.sh --local
 popd
-
-
