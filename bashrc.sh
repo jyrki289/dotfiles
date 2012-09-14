@@ -1,3 +1,4 @@
+export AUTOJUMP_KEEP_SYMLINKS=1
 [[ -f ~/.autojump/etc/profile.d/autojump.bash ]] && source ~/.autojump/etc/profile.d/autojump.bash
 source ~/.dotfiles/git-completion-1.7.2.2.bash
 
