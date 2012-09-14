@@ -9,7 +9,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 alias clean="rm -f *~ *# *.orig"
 alias e='emacsclient -n'
 alias l='ls'
-alias ll='ls -al' 
+alias ll='ls -al'
 alias reinit="source ~/.bash_profile"
 
 export CCACHE=ccache
