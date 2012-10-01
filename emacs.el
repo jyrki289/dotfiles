@@ -1,7 +1,7 @@
 ;; ====PATHS====
 (setq load-path (append load-path
-			(list "~/.dotfiles/emacs.d/")
-			(list "~/.dotfiles/emacs.d/color-theme-6.6.0")
+                        (list "~/.dotfiles/emacs.d/")
+                        (list "~/.dotfiles/emacs.d/color-theme-6.6.0")
                         (list "~/.dotfiles/emacs.d/yasnippet-0.6.1c")
                         (list "~/.dotfiles/emacs.d/magit-1.0.0/")
                         (list "~/.dotfiles/emacs.d/ess-5.13/lisp/")
@@ -129,6 +129,13 @@ try-expand-all-abbrevs try-expand-list))
 (setq org-agenda-files
       '("~/Dropbox/Org/TODAY.org"
         "~/Dropbox/Org/TODO.org"))
+
+
+(defun goto-today-org ()
+  (interactive)
+  (find-file "~/Dropbox/Org/TODAY.org"))
+
+(global-set-key "\C-cy" 'goto-today-org)
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)")))
