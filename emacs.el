@@ -135,7 +135,18 @@ try-expand-all-abbrevs try-expand-list))
   (interactive)
   (find-file "~/Dropbox/Org/TODAY.org"))
 
+(defun goto-notes-org ()
+  (interactive)
+  (find-file "~/Dropbox/Org/NOTES.org"))
+
+(defun goto-scratch ()
+  (interactive)
+  (switch-to-buffer "*scratch*"))
+
 (global-set-key "\C-cy" 'goto-today-org)
+(global-set-key "\C-cn" 'goto-notes-org)
+(global-set-key "\C-cs" 'goto-scratch)
+
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)")))
@@ -144,31 +155,31 @@ try-expand-all-abbrevs try-expand-list))
 (org-clock-persistence-insinuate)
 
 ; #+LaTeX_CLASS: beamer in org files
-(unless (boundp 'org-export-latex-classes)
- (setq org-export-latex-classes nil))
-(add-to-list 'org-export-latex-classes
- ;; beamer class, for presentations
- '("beamer"
-    "\\documentclass[11pt,serif]{beamer}\n"
-    ("\\section{%s}" . "\\section*{%s}")
-    ("\\begin{frame}[fragile]\\frametitle{%s}"
-     "\\end{frame}"
-     "\\begin{frame}[fragile]\\frametitle{%s}"
-     "\\end{frame}")))
+;; (unless (boundp 'org-export-latex-classes)
+;;  (setq org-export-latex-classes nil))
+;; (add-to-list 'org-export-latex-classes
+;;  ;; beamer class, for presentations
+;;  '("beamer"
+;;     "\\documentclass[11pt,serif]{beamer}\n"
+;;     ("\\section{%s}" . "\\section*{%s}")
+;;     ("\\begin{frame}[fragile]\\frametitle{%s}"
+;;      "\\end{frame}"
+;;      "\\begin{frame}[fragile]\\frametitle{%s}"
+;;      "\\end{frame}")))
 
  ;; letter class, for formal letters
 
- (add-to-list 'org-export-latex-classes
- '("letter"
-    "\\documentclass[11pt]{letter}\n
-     \\usepackage[utf8]{inputenc}\n
-     \\usepackage[T1]{fontenc}\n
-     \\usepackage{color}"
-    ("\\section{%s}"       . "\\section*{%s}")
-    ("\\subsection{%s}"    . "\\subsection*{%s}")
-    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-    ("\\paragraph{%s}"     . "\\paragraph*{%s}")
-    ("\\subparagraph{%s}"  . "\\subparagraph*{%s}")))
+ ;; (add-to-list 'org-export-latex-classes
+ ;; '("letter"
+ ;;    "\\documentclass[11pt]{letter}\n
+ ;;     \\usepackage[utf8]{inputenc}\n
+ ;;     \\usepackage[T1]{fontenc}\n
+ ;;     \\usepackage{color}"
+ ;;    ("\\section{%s}"       . "\\section*{%s}")
+ ;;    ("\\subsection{%s}"    . "\\subsection*{%s}")
+ ;;    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+ ;;    ("\\paragraph{%s}"     . "\\paragraph*{%s}")
+ ;;    ("\\subparagraph{%s}"  . "\\subparagraph*{%s}")))
 
 
 
