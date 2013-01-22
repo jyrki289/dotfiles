@@ -3,7 +3,7 @@
                         (list "~/.dotfiles/emacs.d/")
                         (list "~/.dotfiles/emacs.d/color-theme-6.6.0")
                         (list "~/.dotfiles/emacs.d/yasnippet-0.6.1c")
-                        (list "~/.dotfiles/emacs.d/magit-1.0.0/")
+                        (list "~/.dotfiles/emacs.d/magit-1.2.0/")
                         (list "~/.dotfiles/emacs.d/ess-5.13/lisp/")
                         (list "~/.dotfiles/emacs.d/haskell-mode/")
                         (list "~/.dotfiles/emacs.d/ethan-wspace/lisp/")
@@ -188,6 +188,7 @@ try-expand-all-abbrevs try-expand-list))
 ;;
 (autoload 'magit-status "magit" nil t)
 (global-set-key "\C-xg" 'magit-status)
+(setq magit-status-buffer-switch-function 'switch-to-buffer)
 
 ;; y/n is enough
 (defalias 'yes-or-no-p 'y-or-n-p)
