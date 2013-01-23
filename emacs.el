@@ -162,6 +162,16 @@ try-expand-all-abbrevs try-expand-list))
 (global-set-key "\C-xg" 'magit-status)
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
 
+;; Magit diff colors
+(eval-after-load 'magit
+  '(progn
+     ;;(set-face-foreground 'diff-context "#666666")
+     (set-face-foreground 'diff-added "#00cc33")
+     (set-face-foreground 'diff-removed "#ff0000")
+     (when (not window-system)
+       (set-face-background 'magit-item-highlight "black"))))
+
+
 ;; y/n is enough
 (defalias 'yes-or-no-p 'y-or-n-p)
 
