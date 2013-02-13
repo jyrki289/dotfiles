@@ -154,6 +154,16 @@ try-expand-all-abbrevs try-expand-list))
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
 
+;; org-babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((R . t)
+   (ruby . t)
+   (python . t)
+   (sh . t)
+   (perl . t)
+   (latex . t)))
+
 
 ;;
 ;; Magit-mode
