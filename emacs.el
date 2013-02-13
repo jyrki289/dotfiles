@@ -176,6 +176,7 @@ try-expand-all-abbrevs try-expand-list))
 (eval-after-load 'magit
   '(progn
      ;;(set-face-foreground 'diff-context "#666666")
+    (defun magit-highlight-section ())
      (set-face-foreground 'diff-added "#00cc33")
      (set-face-foreground 'diff-removed "#ff0000")
      (when (not window-system)
