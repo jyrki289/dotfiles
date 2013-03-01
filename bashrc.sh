@@ -6,7 +6,7 @@ export PS1='\[\e[1m\]\h:\W$(__git_ps1 " (%s)") \$ \[\e[0m\]'
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-alias clean="rm -f *~ *# *.orig"
+alias clean="rm -f *~ *# *.orig *.pyc"
 alias e='emacsclient -n'
 alias l='ls'
 alias ll='ls -al'
