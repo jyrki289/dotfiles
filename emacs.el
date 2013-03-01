@@ -162,6 +162,7 @@ try-expand-all-abbrevs try-expand-list))
    (python . t)
    (sh . t)
    (perl . t)
+   (ditaa . t)
    (latex . t)))
 
 
