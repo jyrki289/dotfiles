@@ -146,7 +146,7 @@ try-expand-all-abbrevs try-expand-list))
 (global-set-key "\C-cy" 'goto-today-org)
 (global-set-key "\C-cn" 'goto-notes-org)
 (global-set-key "\C-cs" 'goto-scratch)
-
+(global-set-key "\C-ca" 'org-agenda)
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)")))
