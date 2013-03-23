@@ -119,7 +119,12 @@ try-expand-all-abbrevs try-expand-list))
 ;;
 ;; Org-mode
 ;;
-(org-remember-insinuate)
+
+;;(org-remember-insinuate)
+(setq remember-annotation-functions '(org-remember-annotation))
+(setq remember-handler-functions '(org-remember-handler))
+(add-hook 'remember-mode-hook 'org-remember-apply-template)
+
 (setq org-directory "~/Dropbox/Org/")
 (setq org-default-notes-file (concat org-directory "/NOTES.org"))
 (define-key global-map "\C-cr" 'org-remember)
