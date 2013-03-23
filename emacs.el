@@ -199,3 +199,4 @@ try-expand-all-abbrevs try-expand-list))
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+(pending-delete-mode)
