@@ -7,6 +7,7 @@
                         (list "~/.dotfiles/emacs.d/ess-5.13/lisp/")
                         (list "~/.dotfiles/emacs.d/haskell-mode/")
                         (list "~/.dotfiles/emacs.d/ethan-wspace/lisp/")
+                        (list "~/.dotfiles/emacs.d/expand-region/")
                         (list "~/.dotfiles/emacs.d/csharp")))
 
 ;; ====APPEARANCE====
@@ -190,3 +191,6 @@ try-expand-all-abbrevs try-expand-list))
 ;; whitespace mode
 (require 'ethan-wspace)
 (global-ethan-wspace-mode 1)
+
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
