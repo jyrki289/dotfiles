@@ -134,9 +134,14 @@ try-expand-all-abbrevs try-expand-list))
   (interactive)
   (switch-to-buffer "*scratch*"))
 
+(defun goto-dotemacs ()
+  (interactive)
+  (find-file "~/.dotfiles/emacs.el"))
+
 (global-set-key "\C-cy" 'goto-today-org)
 (global-set-key "\C-cn" 'goto-notes-org)
 (global-set-key "\C-cs" 'goto-scratch)
+(global-set-key "\C-ce" 'goto-dotemacs)
 (global-set-key "\C-ca" 'org-agenda)
 
 (setq org-todo-keywords
