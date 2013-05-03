@@ -19,21 +19,6 @@
       (color-theme-charcoal-black)
       (tool-bar-mode 0)))
 
-;;  font and window size
-(if (featurep 'aquamacs)
-    ;; aquamacs
-    (progn
-      ;; Aquamacs font prefs
-      (aquamacs-autoface-mode -1)
-      (set-face-attribute 'mode-line nil :inherit 'unspecified) ; show modeline in Monaco
-      (set-face-attribute 'echo-area nil :family 'unspecified)  ; show echo area in Monaco
-      (setq default-frame-alist
-            '((font . "-apple-Monaco-medium-normal-normal-*-9-*-*-*-m-0-iso10646-1")
-              (width  . 100)
-              (height . 100))))
-  ;; else...
-  nil)
-
 ;;(tool-bar-mode 0)
 
 ;; ====EDITING====
