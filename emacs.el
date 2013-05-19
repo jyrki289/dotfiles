@@ -199,3 +199,28 @@ try-expand-all-abbrevs try-expand-list))
 (require 'multiple-cursors)
 (global-set-key (kbd "C-=") 'mc/mark-next-like-this)
 
+
+
+;; flymake
+(when (load "flymake" t)
+  (defun flymake-pyflakes-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      (list "pyflakes"  (list local-file))))
+  (add-to-list 'flymake-allowed-file-name-masks
+               '("\\.py\\'" flymake-pyflakes-init)))
+
+
+(defun smart-line-beginning ()
+  "Move point to the beginning of text on the current line; if
+that is already the current position of point, then move it to
+the beginning of the line."
+  (interactive)
+  (let ((pt (point)))
+    (beginning-of-line-text)
+    (when (eq pt (point))
+      (beginning-of-line))))
+(global-set-key (kbd "C-a") 'smart-line-beginning)
