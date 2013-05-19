@@ -39,8 +39,11 @@
 (setq auto-mode-alist (cons '("\\.pyx$" . python-mode) auto-mode-alist))
 
 (global-set-key "\M-g" 'goto-line)
-(global-set-key "\C-c\C-c" `comment-dwim)
+(global-set-key "\C-c\C-c" 'comment-dwim)
 (global-set-key "\C-o" 'kill-region)
+(global-set-key "\C-x\C-b" 'ibuffer)
+
+
 
 (defun match-paren (arg)
   "Go to the matching paren if on a paren; otherwise insert %."
