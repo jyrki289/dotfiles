@@ -8,6 +8,7 @@
                         (list "~/.dotfiles/emacs.d/haskell-mode/")
                         (list "~/.dotfiles/emacs.d/ethan-wspace/lisp/")
                         (list "~/.dotfiles/emacs.d/expand-region/")
+                        (list "~/.dotfiles/emacs.d/multiple-cursors/")
                         (list "~/.dotfiles/emacs.d/csharp")))
 
 ;; ====APPEARANCE====
@@ -187,6 +188,11 @@ try-expand-all-abbrevs try-expand-list))
 (require 'ethan-wspace)
 (global-ethan-wspace-mode 1)
 
+;; Magnars stuff
 (require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/expand-region)
 (pending-delete-mode)
+
+(require 'multiple-cursors)
+(global-set-key (kbd "C-=") 'mc/mark-next-like-this)
+
