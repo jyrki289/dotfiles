@@ -194,7 +194,7 @@ try-expand-all-abbrevs try-expand-list))
 ;; Magnars stuff
 (require 'expand-region)
 (global-set-key (kbd "C--") 'er/expand-region)
-(pending-delete-mode)
+;;(pending-delete-mode)
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-=") 'mc/mark-next-like-this)
@@ -224,3 +224,15 @@ the beginning of the line."
     (when (eq pt (point))
       (beginning-of-line))))
 (global-set-key (kbd "C-a") 'smart-line-beginning)
+
+
+(require 'multiple-cursors)
+(global-set-key (kbd "C-=") 'mc/mark-next-like-this)
+
+;; (global-set-key "\M-\\" 'align-regexp)
+
+
+;; autoscroll console in ess
+(setq comint-scroll-to-bottom-on-input t)
+(setq comint-scroll-to-bottom-on-output t)
+(setq comint-move-point-for-output t)
