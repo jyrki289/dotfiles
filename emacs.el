@@ -1,15 +1,23 @@
 ;; ====PATHS====
-(setq load-path (append load-path
-                        (list "~/.dotfiles/emacs.d/")
-                        (list "~/.dotfiles/emacs.d/color-theme-6.6.0")
-                        (list "~/.dotfiles/emacs.d/yasnippet-0.6.1c")
-                        (list "~/.dotfiles/emacs.d/magit-1.2.0/")
-                        (list "~/.dotfiles/emacs.d/ess-5.13/lisp/")
-                        (list "~/.dotfiles/emacs.d/haskell-mode/")
-                        (list "~/.dotfiles/emacs.d/ethan-wspace/lisp/")
-                        (list "~/.dotfiles/emacs.d/expand-region/")
-                        (list "~/.dotfiles/emacs.d/multiple-cursors/")
-                        (list "~/.dotfiles/emacs.d/csharp")))
+(setq load-path
+      (append load-path
+              (list "~/.dotfiles/emacs.d/")
+              (list "~/.dotfiles/emacs.d/color-theme-6.6.0")
+              (list "~/.dotfiles/emacs.d/yasnippet-0.6.1c")
+              (list "~/.dotfiles/emacs.d/magit-1.2.0/")
+              (list "~/.dotfiles/emacs.d/ess-5.13/lisp/")
+              (list "~/.dotfiles/emacs.d/haskell-mode/")
+              (list "~/.dotfiles/emacs.d/ethan-wspace/lisp/")
+              (list "~/.dotfiles/emacs.d/expand-region/")
+              (list "~/.dotfiles/emacs.d/multiple-cursors/")
+
+              (list "~/.dotfiles/emacs.d/s.el/")
+              (list "~/.dotfiles/emacs.d/dash.el//")
+              (list "~/.dotfiles/emacs.d/flx/")
+
+              (list "~/.dotfiles/emacs.d/projectile/")
+
+              (list "~/.dotfiles/emacs.d/csharp")))
 
 ;; ====APPEARANCE====
 (if window-system
@@ -236,3 +244,13 @@ the beginning of the line."
 (setq comint-scroll-to-bottom-on-input t)
 (setq comint-scroll-to-bottom-on-output t)
 (setq comint-move-point-for-output t)
+
+
+(require 'projectile)
+
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
