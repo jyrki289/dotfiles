@@ -5,7 +5,7 @@
               (list "~/.dotfiles/emacs.d/color-theme-6.6.0")
               (list "~/.dotfiles/emacs.d/yasnippet-0.6.1c")
               (list "~/.dotfiles/emacs.d/magit-1.2.0/")
-              (list "~/.dotfiles/emacs.d/ess-5.13/lisp/")
+              (list "~/.dotfiles/emacs.d/ess-13.05/lisp/")
               (list "~/.dotfiles/emacs.d/haskell-mode/")
               (list "~/.dotfiles/emacs.d/ethan-wspace/lisp/")
               (list "~/.dotfiles/emacs.d/expand-region/")
@@ -106,7 +106,7 @@ try-expand-all-abbrevs try-expand-list))
 
 (global-auto-revert-mode)
 
-;; (require 'ess-site)
+(require 'ess-site)
 
 ;;
 ;; Haskell
