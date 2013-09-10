@@ -247,6 +247,9 @@ the beginning of the line."
 (setq comint-scroll-to-bottom-on-output t)
 (setq comint-move-point-for-output t)
 
+
+(setq tramp-auto-save-directory "/tmp")
+
 (require 'flx-ido)
 (ido-mode 1)
 (ido-everywhere 1)
