@@ -261,6 +261,10 @@ the beginning of the line."
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
+;; for looking at ack results
+(global-set-key (kbd "<s-up>")   'previous-error)
+(global-set-key (kbd "<s-down>") 'next-error)
+
 (require 'projectile)
 (define-key projectile-mode-map [?\s-d] 'projectile-find-dir)
 (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
