@@ -15,6 +15,8 @@
               (list "~/.dotfiles/emacs.d/dash.el//")
               (list "~/.dotfiles/emacs.d/flx/")
 
+              (list "~/.dotfiles/emacs.d/ack-and-a-half-1.2.0/")
+
               (list "~/.dotfiles/emacs.d/projectile/")
 
               (list "~/.dotfiles/emacs.d/csharp")))
@@ -245,12 +247,25 @@ the beginning of the line."
 (setq comint-scroll-to-bottom-on-output t)
 (setq comint-move-point-for-output t)
 
-
-(require 'projectile)
-
 (require 'flx-ido)
 (ido-mode 1)
 (ido-everywhere 1)
 (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
+
+(require 'ack-and-a-half)
+;; Create shorter aliases
+(defalias 'ack 'ack-and-a-half)
+(defalias 'ack-same 'ack-and-a-half-same)
+(defalias 'ack-find-file 'ack-and-a-half-find-file)
+(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+
+(require 'projectile)
+(define-key projectile-mode-map [?\s-d] 'projectile-find-dir)
+(define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
+(define-key projectile-mode-map [?\s-f] 'projectile-find-file)
+(define-key projectile-mode-map [?\s-g] 'projectile-grep)
+(define-key projectile-mode-map [?\s-a] 'projectile-ack)
+
+(projectile-global-mode)
