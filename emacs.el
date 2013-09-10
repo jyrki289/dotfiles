@@ -52,7 +52,7 @@
 (global-set-key "\C-c\C-c" 'comment-dwim)
 (global-set-key "\C-o" 'kill-region)
 (global-set-key "\C-x\C-b" 'ibuffer)
-
+(global-set-key "\C-x\\" 'align-regexp)
 
 
 (defun match-paren (arg)
