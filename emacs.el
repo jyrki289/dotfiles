@@ -292,3 +292,15 @@ the beginning of the line."
 
 (global-set-key (kbd "<s-right>") 'next-buffer)
 (global-set-key (kbd "<s-left>")  'previous-buffer)
+
+;; for *scratch*
+(setq initial-major-mode 'org-mode)
+
+
+(column-number-mode)
+
+
+(require 'diminish)
+(diminish 'yas/minor-mode)
+(diminish 'projectile-mode)
+(diminish 'ethan-wspace-mode)
