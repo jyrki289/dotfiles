@@ -289,3 +289,6 @@ the beginning of the line."
   (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
   (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
 (add-hook 'ido-setup-hook 'ido-define-keys)
+
+(global-set-key (kbd "<s-right>") 'next-buffer)
+(global-set-key (kbd "<s-left>")  'previous-buffer)
