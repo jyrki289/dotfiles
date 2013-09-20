@@ -25,10 +25,10 @@
 (if window-system
     (progn
       (global-font-lock-mode t)
-      (require 'color-theme)
-      (color-theme-initialize)
-      (color-theme-charcoal-black)
       (tool-bar-mode 0)))
+
+(add-to-list 'custom-theme-load-path "~/.dotfiles/emacs.d/themes/")
+(load-theme 'zenburn t)
 
 ;;(tool-bar-mode 0)
 
@@ -304,3 +304,6 @@ the beginning of the line."
 (diminish 'yas/minor-mode)
 (diminish 'projectile-mode)
 (diminish 'ethan-wspace-mode)
+
+
+(scroll-bar-mode 0)
