@@ -194,8 +194,6 @@ try-expand-all-abbrevs try-expand-list))
        (set-face-background 'magit-item-highlight "black"))))
 
 
-;; y/n is enough
-(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; whitespace mode
 (require 'ethan-wspace)
@@ -274,6 +272,8 @@ the beginning of the line."
 (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
 (define-key projectile-mode-map [?\s-g] 'projectile-grep)
 (define-key projectile-mode-map [?\s-a] 'projectile-ack)
+(define-key projectile-mode-map [?\s-b] 'projectile-compile-project)
+
 
 (projectile-global-mode)
 
@@ -307,3 +307,22 @@ the beginning of the line."
 
 
 (scroll-bar-mode 0)
+(global-set-key (kbd "C-<") 'pop-global-mark)
+
+
+(load "window-management.el")
+(global-set-key [?\s-t] 'toggle-window-split)
+(global-set-key [?\s-r] 'rotate-windows)
+
+
+(setq-default truncate-lines t)
+
+;; no more prompts!
+(setq confirm-nonexistent-file-or-buffer nil)
+(setq ido-create-new-buffer 'always)
+(setq inhibit-startup-message t
+      inhibit-startup-echo-area-message t)
+(setq kill-buffer-query-functions
+  (remq 'process-kill-buffer-query-function
+         kill-buffer-query-functions))
+(defalias 'yes-or-no-p 'y-or-n-p)
