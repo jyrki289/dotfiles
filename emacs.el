@@ -2,24 +2,26 @@
 (setq load-path
       (append load-path
               (list "~/.dotfiles/emacs.d/")
-              (list "~/.dotfiles/emacs.d/color-theme-6.6.0")
-              (list "~/.dotfiles/emacs.d/yasnippet-0.6.1c")
-              (list "~/.dotfiles/emacs.d/magit-1.2.0/")
-              (list "~/.dotfiles/emacs.d/ess-13.05/lisp/")
-              (list "~/.dotfiles/emacs.d/haskell-mode/")
-              (list "~/.dotfiles/emacs.d/ethan-wspace/lisp/")
-              (list "~/.dotfiles/emacs.d/expand-region/")
-              (list "~/.dotfiles/emacs.d/multiple-cursors/")
-
-              (list "~/.dotfiles/emacs.d/s.el/")
-              (list "~/.dotfiles/emacs.d/dash.el//")
-              (list "~/.dotfiles/emacs.d/flx/")
-
-              (list "~/.dotfiles/emacs.d/ack-and-a-half-1.2.0/")
-
-              (list "~/.dotfiles/emacs.d/projectile/")
-
-              (list "~/.dotfiles/emacs.d/csharp")))
+              (list "~/.dotfiles/emacs.d/vendor")
+              (list "~/.dotfiles/emacs.d/vendor/color-theme-6.6.0")
+              (list "~/.dotfiles/emacs.d/vendor/yasnippet-0.6.1c")
+              (list "~/.dotfiles/emacs.d/vendor/magit-1.2.0/")
+              (list "~/.dotfiles/emacs.d/vendor/ess-13.05/lisp/")
+              (list "~/.dotfiles/emacs.d/vendor/haskell-mode/")
+              (list "~/.dotfiles/emacs.d/vendor/ethan-wspace/lisp/")
+              (list "~/.dotfiles/emacs.d/vendor/expand-region/")
+              (list "~/.dotfiles/emacs.d/vendor/multiple-cursors/")
+              (list "~/.dotfiles/emacs.d/vendor/s.el/")
+              (list "~/.dotfiles/emacs.d/vendor/dash.el/")
+              (list "~/.dotfiles/emacs.d/vendor/f.el-0.10.0/")
+              (list "~/.dotfiles/emacs.d/vendor/flx/")
+              (list "~/.dotfiles/emacs.d/vendor/ack-and-a-half-1.2.0/")
+              (list "~/.dotfiles/emacs.d/vendor/projectile/")
+              (list "~/.dotfiles/emacs.d/vendor/csharp")
+              (list "~/.dotfiles/emacs.d/vendor/auctex-11.87/")
+              (list "~/.dotfiles/emacs.d/vendor/auctex-11.87/preview/")
+              (list "~/.dotfiles/emacs.d/vendor/flycheck-0.14.1/")
+))
 
 ;; ====APPEARANCE====
 (if window-system
@@ -50,7 +52,6 @@
 
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-c\C-c" 'comment-dwim)
-(global-set-key "\C-o" 'kill-region)
 (global-set-key "\C-x\C-b" 'ibuffer)
 (global-set-key "\C-x\\" 'align-regexp)
 
@@ -80,7 +81,7 @@
 ;; yasnippet
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas/initialize)
-(setq yas/root-directory '("~/.dotfiles/emacs.d/yasnippet-0.6.1c/snippets"
+(setq yas/root-directory '("~/.dotfiles/emacs.d/vendor/yasnippet-0.6.1c/snippets"
                            "~/.dotfiles/emacs.d/site-snippets/"))
 (mapc 'yas/load-directory yas/root-directory)
 
@@ -245,8 +246,10 @@ the beginning of the line."
 (setq comint-scroll-to-bottom-on-output t)
 (setq comint-move-point-for-output t)
 
-
 (setq tramp-auto-save-directory "/tmp")
+
+(load "ido-vertical-mode.el")
+(ido-vertical-mode)
 
 (require 'flx-ido)
 (ido-mode 1)
@@ -278,23 +281,8 @@ the beginning of the line."
 (projectile-global-mode)
 
 
-;; Display ido results vertically, rather than horizontally
-(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]"
-                              " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
-
-
-(defun ido-disable-line-truncation () (set (make-local-variable 'truncate-lines) nil))
-(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-truncation)
-(defun ido-define-keys () ;; C-n/p is more intuitive in vertical layout
-  (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
-  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
-(add-hook 'ido-setup-hook 'ido-define-keys)
-
 (global-set-key (kbd "<s-right>") 'next-buffer)
 (global-set-key (kbd "<s-left>")  'previous-buffer)
-
-;; for *scratch*
-(setq initial-major-mode 'org-mode)
 
 
 (column-number-mode)
