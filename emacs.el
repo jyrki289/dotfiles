@@ -108,6 +108,7 @@ try-expand-all-abbrevs try-expand-list))
 (global-auto-revert-mode)
 
 (require 'ess-site)
+;;(ess-toggle-underscore)
 
 ;;
 ;; Haskell
@@ -174,6 +175,7 @@ try-expand-all-abbrevs try-expand-list))
    (sh . t)
    (perl . t)
    (ditaa . t)
+   (gnuplot . t)
    (latex . t)))
 
 
@@ -316,3 +318,10 @@ the beginning of the line."
   (remq 'process-kill-buffer-query-function
          kill-buffer-query-functions))
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+
+
+;;(setq comint-prompt-read-only t)
+(setq comint-scroll-to-bottom-on-input t)
+(setq comint-scroll-to-bottom-on-output t)
+(setq comint-move-point-for-output t)
