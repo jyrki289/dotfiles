@@ -10,7 +10,7 @@
               (list "~/.dotfiles/emacs.d/vendor/haskell-mode/")
               (list "~/.dotfiles/emacs.d/vendor/ethan-wspace/lisp/")
               (list "~/.dotfiles/emacs.d/vendor/expand-region.el-0.9.0/")
-              (list "~/.dotfiles/emacs.d/vendor/multiple-cursors/")
+              (list "~/.dotfiles/emacs.d/vendor/multiple-cursors.el-1.3.0/")
               (list "~/.dotfiles/emacs.d/vendor/s.el-1.8.0/")
               (list "~/.dotfiles/emacs.d/vendor/dash.el-1.5.0/")
               (list "~/.dotfiles/emacs.d/vendor/f.el-0.10.0/")
