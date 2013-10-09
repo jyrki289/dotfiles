@@ -302,6 +302,8 @@ the beginning of the line."
 (global-set-key [?\s-t] 'toggle-window-split)
 (global-set-key [?\s-r] 'rotate-windows)
 
+(global-set-key [?\s-o] 'other-window)
+
 
 (setq-default truncate-lines t)
 
