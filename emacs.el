@@ -331,3 +331,6 @@ the beginning of the line."
 (setq comint-scroll-to-bottom-on-input t)
 (setq comint-scroll-to-bottom-on-output t)
 (setq comint-move-point-for-output t)
+
+
+(global-set-key "\C-x\C-j" 'dired-jump)
