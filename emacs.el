@@ -297,6 +297,12 @@ the beginning of the line."
 
 
 (scroll-bar-mode 0)
+
+(load "auctex.el" nil t t)
+(load "preview-latex.el" nil t t)
+(setq TeX-PDF-mode t)
+
+
 (global-set-key (kbd "C-<") 'pop-global-mark)
 
 
