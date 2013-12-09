@@ -332,5 +332,5 @@ the beginning of the line."
 (setq comint-scroll-to-bottom-on-output t)
 (setq comint-move-point-for-output t)
 
-
+(require 'dired-x)
 (global-set-key "\C-x\C-j" 'dired-jump)
