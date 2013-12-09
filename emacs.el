@@ -334,3 +334,8 @@ the beginning of the line."
 
 (require 'dired-x)
 (global-set-key "\C-x\C-j" 'dired-jump)
+
+(require 'uniquify)
+(custom-set-variables
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+
