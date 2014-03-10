@@ -11,5 +11,6 @@ alias e='emacsclient -n'
 alias l='ls'
 alias ll='ls -al'
 alias reinit="source ~/.bash_profile"
+alias x=xargs
 
 export CCACHE=ccache
