@@ -110,6 +110,8 @@ try-expand-all-abbrevs try-expand-list))
 (add-hook 'python-mode-hook '(lambda ()
   (local-set-key (kbd "RET") 'newline-and-indent)))
 (setq-default py-indent-offset 4)
+(setq python-fill-docstring-style 'django)
+
 
 (global-auto-revert-mode)
 
