@@ -16,12 +16,18 @@
               (list "~/.dotfiles/emacs.d/vendor/f.el-0.10.0/")
               (list "~/.dotfiles/emacs.d/vendor/flx-master/")
               (list "~/.dotfiles/emacs.d/vendor/ack-and-a-half-1.2.0/")
-              (list "~/.dotfiles/emacs.d/vendor/projectile-0.9.2/")
+              (list "~/.dotfiles/emacs.d/vendor/projectile/")
               (list "~/.dotfiles/emacs.d/vendor/csharp")
               (list "~/.dotfiles/emacs.d/vendor/auctex-11.87/")
               (list "~/.dotfiles/emacs.d/vendor/auctex-11.87/preview/")
+              (list "~/.dotfiles/emacs.d/vendor/fsharpbinding-3.2.22/emacs/")
+              (list "~/.dotfiles/emacs.d/vendor/auto-complete-1.4.0/")
+              (list "~/.dotfiles/emacs.d/vendor/popup-el-0.5.0/")
               (list "~/.dotfiles/emacs.d/vendor/flycheck-0.14.1/")
+              (list "~/.dotfiles/emacs.d/vendor/helm-1.6.3")
 ))
+
+(require 'helm-config)
 
 ;; ====APPEARANCE====
 (if window-system
@@ -272,8 +278,10 @@ the beginning of the line."
 (global-set-key (kbd "<s-down>") 'next-error)
 
 (require 'projectile)
-(define-key projectile-mode-map [?\s-d] 'projectile-find-dir)
-(define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
+(require 'helm-projectile)
+
+(setq projectile-completion-system 'helm)
+(define-key projectile-mode-map [?\s-p] 'helm-projectile-switch-project)
 (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
 (define-key projectile-mode-map [?\s-g] 'projectile-grep)
 (define-key projectile-mode-map [?\s-a] 'projectile-ack)
@@ -325,7 +333,7 @@ the beginning of the line."
          kill-buffer-query-functions))
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-
+(load "move-text.el")
 
 ;;(setq comint-prompt-read-only t)
 (setq comint-scroll-to-bottom-on-input t)
@@ -339,3 +347,13 @@ the beginning of the line."
 (custom-set-variables
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
+(defun set-exec-path-from-shell-PATH ()
+  "Set up Emacs' `exec-path' and PATH environment variable to match that used by the user's shell.
+This is particularly useful under Mac OSX, where GUI apps are not started from a shell."
+  (interactive)
+  (let ((path-from-shell
+         (replace-regexp-in-string "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(set-exec-path-from-shell-PATH)
