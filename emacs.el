@@ -4,7 +4,7 @@
               (list "~/.dotfiles/emacs.d/")
               (list "~/.dotfiles/emacs.d/vendor")
               (list "~/.dotfiles/emacs.d/vendor/color-theme-6.6.0")
-              (list "~/.dotfiles/emacs.d/vendor/yasnippet-0.6.1c")
+              (list "~/.dotfiles/emacs.d/vendor/yasnippet")
               (list "~/.dotfiles/emacs.d/vendor/magit-1.2.1/")
               (list "~/.dotfiles/emacs.d/vendor/ess-13.05/lisp/")
               (list "~/.dotfiles/emacs.d/vendor/haskell-mode/")
@@ -97,11 +97,12 @@
 
 
 ;; yasnippet
-(require 'yasnippet) ;; not yasnippet-bundle
-(yas/initialize)
-(setq yas/root-directory '("~/.dotfiles/emacs.d/vendor/yasnippet-0.6.1c/snippets"
-                           "~/.dotfiles/emacs.d/site-snippets/"))
-(mapc 'yas/load-directory yas/root-directory)
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.dotfiles/emacs.d/site-snippets/"
+        "~/.dotfiles/emacs.d/vendor/yasnippet/snippets"))
+(yas-global-mode 1)
+
 
 ;; server
 (server-start)
@@ -307,7 +308,7 @@ the beginning of the line."
 
 
 (require 'diminish)
-(diminish 'yas/minor-mode)
+(diminish 'yas-minor-mode)
 (diminish 'projectile-mode)
 (diminish 'ethan-wspace-mode)
 
