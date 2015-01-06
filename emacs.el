@@ -5,7 +5,7 @@
               (list "~/.dotfiles/emacs.d/vendor")
               (list "~/.dotfiles/emacs.d/vendor/color-theme-6.6.0")
               (list "~/.dotfiles/emacs.d/vendor/yasnippet-0.6.1c")
-              (list "~/.dotfiles/emacs.d/vendor/magit-1.2.0/")
+              (list "~/.dotfiles/emacs.d/vendor/magit-1.2.1/")
               (list "~/.dotfiles/emacs.d/vendor/ess-13.05/lisp/")
               (list "~/.dotfiles/emacs.d/vendor/haskell-mode/")
               (list "~/.dotfiles/emacs.d/vendor/ethan-wspace/lisp/")
