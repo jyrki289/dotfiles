@@ -28,6 +28,8 @@
 ))
 
 (require 'helm-config)
+(helm-mode 0)
+
 
 ;; ====APPEARANCE====
 (if window-system
@@ -35,8 +37,13 @@
       (global-font-lock-mode t)
       (tool-bar-mode 0)))
 
-(add-to-list 'custom-theme-load-path "~/.dotfiles/emacs.d/themes/")
-(load-theme 'zenburn t)
+;; (add-to-list 'custom-theme-load-path "~/.dotfiles/emacs.d/themes/")
+;; (load-theme 'zenburn t)
+
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-wheat)
+
 
 ;;(tool-bar-mode 0)
 
@@ -53,8 +60,13 @@
 
 
 ;; ====FILE EXTENSIONS AND MODES=====
-(setq auto-mode-alist (cons '("\\.cu$" . c++-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.cu$"  . c++-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.pyx$" . python-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.cs$"  . csharp-mode) auto-mode-alist))
+
+(setq auto-mode-alist (cons '("\\.fs$"   . fsharp-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.fsx$"  . fsharp-mode) auto-mode-alist))
+
 
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-c\C-c" 'comment-dwim)
@@ -258,15 +270,7 @@ the beginning of the line."
 
 (setq tramp-auto-save-directory "/tmp")
 
-(load "ido-vertical-mode.el")
-(ido-vertical-mode)
 
-(require 'flx-ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
-(setq ido-use-faces nil)
 
 (require 'ack-and-a-half)
 ;; Create shorter aliases
@@ -285,9 +289,11 @@ the beginning of the line."
 (setq projectile-completion-system 'helm)
 (define-key projectile-mode-map [?\s-p] 'helm-projectile-switch-project)
 (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
+(define-key projectile-mode-map [?\s-b] 'projectile-switch-to-buffer)
 (define-key projectile-mode-map [?\s-g] 'projectile-grep)
 (define-key projectile-mode-map [?\s-a] 'projectile-ack)
-(define-key projectile-mode-map [?\s-b] 'projectile-compile-project)
+(define-key projectile-mode-map [?\s-m] 'projectile-compile-project) ;; m for "make"
+;;(define-key projectile-mode-map [?\s-c] 'projectile-compile-project)
 
 
 (projectile-global-mode)
@@ -327,7 +333,7 @@ the beginning of the line."
 
 ;; no more prompts!
 (setq confirm-nonexistent-file-or-buffer nil)
-(setq ido-create-new-buffer 'always)
+
 (setq inhibit-startup-message t
       inhibit-startup-echo-area-message t)
 (setq kill-buffer-query-functions
@@ -359,3 +365,58 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
     (setq exec-path (split-string path-from-shell path-separator))))
 
 (set-exec-path-from-shell-PATH)
+
+(require 'csharp-mode)
+(require 'fsharp-mode)
+
+(global-set-key (kbd "C-*") 'mc/mark-all-dwim)
+
+
+
+(defun projectile-eshell-cd (dir)
+  "If there is an EShell buffer, cd to DIR in that buffer."
+  (interactive "D")
+  (let* ((eshell-buf-p (lambda (buf)
+                         (with-current-buffer buf (eq major-mode 'eshell-mode))))
+         (eshell-win-p (lambda (win)
+                         (let ((buf (window-buffer win)))
+                           (with-current-buffer buf (eq major-mode 'eshell-mode)))))
+         (eshell-win (find-if eshell-win-p (window-list)))
+         (eshell-buf (find-if eshell-buf-p (buffer-list))))
+    (if eshell-win
+        (setq eshell-buf (window-buffer eshell-win)))
+    (unless eshell-buf
+      (eshell)
+      (setq eshell-buf (current-buffer)))
+    (with-current-buffer eshell-buf
+      (goto-char (point-max))
+      (eshell/cd dir)
+      (eshell-send-input nil t)
+      eshell-buf ;; returns eshell-buf so you can focus
+      ; the window if you want
+      )
+    (if eshell-win
+        (select-window eshell-win)
+      (switch-to-buffer eshell-buf))))
+
+(defun projectile-eshell-cd-root ()
+  (interactive)
+  (projectile-eshell-cd (projectile-project-root)))
+
+(defun projectile-eshell-cd-current ()
+  (interactive)
+  (projectile-eshell-cd default-directory))
+
+(define-key projectile-mode-map [?\s-s] 'projectile-eshell-cd-root)
+
+(setq tramp-auto-save-directory "/tmp")
+(global-linum-mode)
+
+
+
+(require 'org-crypt)
+(org-crypt-use-before-save-magic)
+(setq org-tags-exclude-from-inheritance (quote ("crypt")))
+;; GPG key to use for encryption
+;; Either the Key ID or set to nil to use symmetric encryption.
+(setq org-crypt-key nil)
