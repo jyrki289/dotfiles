@@ -19,9 +19,8 @@ popd
 mkdir -p ~/bin
 
 ### Install packages
-pushd ~/.dotfiles/Packages
-rm -rf joelthelion-autojump-1ab78ae
-unzip joelthelion-autojump-release-v21-rc.2-2-g1ab78ae.zip
-cd joelthelion-autojump-1ab78ae
+pushd ~/.dotfiles/Packages/
+tar xvfz autojump-release-v21.7.1.tar.gz
+cd autojump-release-v21.7.1
 ./install.sh --local
 popd
