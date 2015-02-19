@@ -437,3 +437,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 ;; GPG key to use for encryption
 ;; Either the Key ID or set to nil to use symmetric encryption.
 (setq org-crypt-key nil)
+
+
+(require 'minibuf-electric-gnuemacs)
